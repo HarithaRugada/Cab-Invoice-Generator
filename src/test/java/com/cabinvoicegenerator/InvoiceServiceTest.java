@@ -39,6 +39,17 @@ public class InvoiceServiceTest {
         };
         InvoiceSummary invoiceSummary = invoiceGenerator.calculateFare(rides);
         InvoiceSummary expectedInvoiceSummary = new InvoiceSummary(2, 30);
-        Assert.assertEquals(expectedInvoiceSummary,invoiceSummary);
+        Assert.assertEquals(expectedInvoiceSummary, invoiceSummary);
+    }
+
+    @Test
+    public void givenUserId_ShouldReturnServiceInvoice() {
+        Ride[] userRide1 = {new Ride(2.0, 3),
+                new Ride(0.1, 1)};
+        invoiceGenerator.InvoiceService(userRide1, 111);
+        Ride[] userRide2 = {new Ride(7.3, 5),
+                new Ride(5.7, 2)};
+        invoiceGenerator.InvoiceService(userRide2, 222);
+        Assert.assertEquals(new InvoiceSummary(2, 54), invoiceGenerator.InvoiceService(111));
     }
 }
