@@ -3,10 +3,16 @@ package com.cabinvoicegenerator;
 import com.cabinvoicegenerator.service.InvoiceGenerator;
 import com.cabinvoicegenerator.utility.Ride;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 public class InvoiceServiceTest {
-    InvoiceGenerator invoiceGenerator = new InvoiceGenerator();
+    InvoiceGenerator invoiceGenerator = null;
+
+    @Before
+    public void setUp() {
+        invoiceGenerator = new InvoiceGenerator();
+    }
 
     @Test
     public void givenDistanceAndTime_ShouldReturnTotalFare() {
