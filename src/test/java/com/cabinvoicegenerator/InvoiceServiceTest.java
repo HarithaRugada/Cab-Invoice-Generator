@@ -64,4 +64,13 @@ public class InvoiceServiceTest {
         double fare = invoiceGenerator.calculateFare(distance, time);
         Assert.assertEquals(25, fare, 0.0);
     }
+
+    @Test
+    public void whenRideTypeIsPremium_ShouldReturnTotalFare() {
+        double distance = 2.0;
+        int time = 5;
+        InvoiceGenerator.rideCategory(PREMIUM);
+        double fare = invoiceGenerator.calculateFare(distance, time);
+        Assert.assertEquals(40, fare, 0.0);
+    }
 }
