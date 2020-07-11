@@ -1,9 +1,9 @@
 package com.cabinvoicegenerator.service;
 
 public class InvoiceSummary {
-    private final int numOfRides;
-    private final double totalFare;
-    private final double averageFare;
+    private int numOfRides;
+    public double totalFare;
+    private double averageFare;
 
     public InvoiceSummary(int numOfRides, double totalFare) {
         this.numOfRides = numOfRides;
