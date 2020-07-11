@@ -1,7 +1,5 @@
 package com.cabinvoicegenerator.service;
 
-import java.util.Objects;
-
 public class InvoiceSummary {
     private final int numOfRides;
     private final double totalFare;
