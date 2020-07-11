@@ -7,6 +7,9 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import static com.cabinvoicegenerator.utility.Ride.RideType.NORMAL;
+import static com.cabinvoicegenerator.utility.Ride.RideType.PREMIUM;
+
 public class InvoiceServiceTest {
     InvoiceGenerator invoiceGenerator = null;
 
@@ -51,5 +54,14 @@ public class InvoiceServiceTest {
                 new Ride(5.7, 2)};
         invoiceGenerator.InvoiceService(userRide2, 222);
         Assert.assertEquals(new InvoiceSummary(2, 54), invoiceGenerator.InvoiceService(111));
+    }
+
+    @Test
+    public void whenRideTypeIsNormal_ShouldReturnTotalFare() {
+        double distance = 2.0;
+        int time = 5;
+        InvoiceGenerator.rideCategory(NORMAL);
+        double fare = invoiceGenerator.calculateFare(distance, time);
+        Assert.assertEquals(25, fare, 0.0);
     }
 }
